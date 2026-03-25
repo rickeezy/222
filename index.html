@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chemistry Learning Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="pill">Gen Chem + Chem 2 + Kids Mode</p>
+        <h1>Chemistry Learning Hub</h1>
+        <p>
+          A complete, interactive chemistry space for understanding concepts,
+          practicing problem-solving, and rapidly solving repetitive calculations.
+        </p>
+        <a class="hero__button" href="#calculators">Launch Calculators</a>
+      </div>
+      <div class="hero__orb" aria-hidden="true"></div>
+    </header>
+
+    <main>
+      <section class="card" id="quick-tools">
+        <h2>Quick Study Tools</h2>
+        <div class="tool-grid">
+          <article>
+            <h3>Concept Snapshots</h3>
+            <p>
+              Learn core topics in bite-sized summaries with examples and memory
+              tips.
+            </p>
+            <label for="topic-picker">Choose topic</label>
+            <select id="topic-picker"></select>
+            <div id="topic-content" class="note"></div>
+          </article>
+          <article>
+            <h3>Periodic Table Explorer</h3>
+            <p>Search symbols, names, atomic number, and approximate mass.</p>
+            <input
+              id="element-search"
+              type="text"
+              placeholder="Try: Na, oxygen, 17"
+            />
+            <div id="element-results" class="element-results"></div>
+          </article>
+          <article>
+            <h3>Adaptive Practice Quiz</h3>
+            <p>
+              Solve randomized questions from stoichiometry, acid-base, gas laws,
+              and atomic structure.
+            </p>
+            <button id="new-question" class="button">New Question</button>
+            <div id="quiz-question" class="quiz-question">Press New Question</div>
+            <input id="quiz-answer" type="text" placeholder="Your answer" />
+            <button id="check-answer" class="button">Check Answer</button>
+            <p id="quiz-feedback" class="feedback"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" id="calculators">
+        <h2>Chemistry Calculators</h2>
+        <p class="muted">
+          Built for tedious and high-frequency chemistry calculations with clear
+          unit-aware workflows.
+        </p>
+
+        <div class="calculator-grid">
+          <article class="calc">
+            <h3>Molar Mass Calculator</h3>
+            <p>Supports formulas with parentheses (e.g., Ca(OH)2, Al2(SO4)3).</p>
+            <input id="formula-input" type="text" placeholder="H2SO4" />
+            <button id="molar-mass-btn" class="button">Calculate</button>
+            <p id="molar-mass-output" class="output"></p>
+          </article>
+
+          <article class="calc">
+            <h3>Stoichiometry (Moles ↔ Grams)</h3>
+            <p>Convert directly once you know molar mass.</p>
+            <label>Moles</label>
+            <input id="st-moles" type="number" step="any" placeholder="2.5" />
+            <label>Molar Mass (g/mol)</label>
+            <input id="st-mm" type="number" step="any" placeholder="18.015" />
+            <div class="button-row">
+              <button id="to-grams" class="button">Moles → Grams</button>
+              <button id="to-moles" class="button">Grams → Moles</button>
+            </div>
+            <label>Grams</label>
+            <input id="st-grams" type="number" step="any" placeholder="45.0" />
+            <p id="stoich-output" class="output"></p>
+          </article>
+
+          <article class="calc">
+            <h3>Dilution Calculator (M₁V₁ = M₂V₂)</h3>
+            <p>Leave exactly one field empty to solve for it.</p>
+            <div class="quad-grid">
+              <input id="m1" type="number" step="any" placeholder="M1" />
+              <input id="v1" type="number" step="any" placeholder="V1" />
+              <input id="m2" type="number" step="any" placeholder="M2" />
+              <input id="v2" type="number" step="any" placeholder="V2" />
+            </div>
+            <button id="dilution-btn" class="button">Solve Missing Value</button>
+            <p id="dilution-output" class="output"></p>
+          </article>
+
+          <article class="calc">
+            <h3>Ideal Gas Law (PV = nRT)</h3>
+            <p>Use P (atm), V (L), n (mol), T (K). Leave one blank.</p>
+            <div class="quad-grid">
+              <input id="gas-p" type="number" step="any" placeholder="P" />
+              <input id="gas-v" type="number" step="any" placeholder="V" />
+              <input id="gas-n" type="number" step="any" placeholder="n" />
+              <input id="gas-t" type="number" step="any" placeholder="T" />
+            </div>
+            <button id="gas-btn" class="button">Solve Missing Value</button>
+            <p id="gas-output" class="output"></p>
+          </article>
+
+          <article class="calc">
+            <h3>pH / pOH / [H⁺] / [OH⁻]</h3>
+            <p>Enter any single value to compute all others.</p>
+            <div class="quad-grid">
+              <input id="ph" type="number" step="any" placeholder="pH" />
+              <input id="poh" type="number" step="any" placeholder="pOH" />
+              <input id="hplus" type="number" step="any" placeholder="[H+]" />
+              <input id="ohminus" type="number" step="any" placeholder="[OH-]" />
+            </div>
+            <button id="acid-btn" class="button">Compute Set</button>
+            <p id="acid-output" class="output"></p>
+          </article>
+
+          <article class="calc">
+            <h3>Reaction Yield Calculator</h3>
+            <p>Percent yield = (actual / theoretical) × 100.</p>
+            <label>Actual Yield (g)</label>
+            <input id="actual-yield" type="number" step="any" />
+            <label>Theoretical Yield (g)</label>
+            <input id="theoretical-yield" type="number" step="any" />
+            <button id="yield-btn" class="button">Calculate % Yield</button>
+            <p id="yield-output" class="output"></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Designed to help students build deep chemistry intuition and solve hard
+        calculations fast.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
