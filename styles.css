@@ -1,0 +1,222 @@
+:root {
+  --bg: #0b1220;
+  --surface: #111b2f;
+  --surface-soft: #15243f;
+  --text: #e9eef9;
+  --muted: #aac1e8;
+  --primary: #35b6ff;
+  --accent: #8cf29a;
+  --danger: #ff8e8e;
+  --radius: 18px;
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at 20% 10%, #132444 0%, var(--bg) 50%);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.hero {
+  padding: 4.5rem 1.2rem 2rem;
+}
+
+.hero__content {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 3vw, 3.3rem);
+  margin: 0.4rem 0;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.72rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--primary), #4f8cff);
+  color: #061124;
+}
+
+.btn--ghost {
+  border-color: #3a547f;
+  color: var(--text);
+}
+
+.layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: linear-gradient(160deg, var(--surface), var(--surface-soft));
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  box-shadow: var(--shadow);
+  border: 1px solid #243a61;
+}
+
+.card h2 { margin-top: 0; }
+
+.topic-grid {
+  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.5rem;
+}
+
+.topic-btn {
+  border: 1px solid #365381;
+  background: #10203a;
+  color: var(--text);
+  border-radius: 12px;
+  padding: 0.65rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.topic-btn.active,
+.calc-tab.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(53, 182, 255, 0.3);
+}
+
+.topic-content {
+  margin-top: 0.8rem;
+  background: rgba(10, 20, 36, 0.65);
+  border-radius: 12px;
+  padding: 0.9rem;
+  border: 1px solid #213353;
+}
+
+.periodic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.6rem;
+}
+
+.element {
+  background: #0f1e35;
+  border: 1px solid #29436b;
+  border-radius: 12px;
+  padding: 0.7rem;
+}
+
+.element h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.element small { color: var(--muted); }
+
+.calculator-tabs {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.calc-tab {
+  border: 1px solid #35527f;
+  background: #10203a;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.calculator-panel {
+  margin-top: 0.8rem;
+  background: rgba(10, 20, 36, 0.7);
+  border: 1px solid #274168;
+  border-radius: 14px;
+  padding: 0.9rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.6rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+}
+
+input, select {
+  background: #0c1730;
+  color: var(--text);
+  border: 1px solid #2d4872;
+  border-radius: 10px;
+  padding: 0.55rem;
+}
+
+button.solve {
+  margin-top: 0.8rem;
+  background: linear-gradient(135deg, #7bf2a2, #35b6ff);
+  color: #071421;
+  border: none;
+  border-radius: 12px;
+  padding: 0.58rem 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 0.8rem;
+  background: #091323;
+  border: 1px solid #2b466f;
+  border-radius: 10px;
+  padding: 0.7rem;
+}
+
+.result strong { color: var(--accent); }
+.error { color: var(--danger); font-weight: 600; }
+
+.footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.6rem 1rem 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
