@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chemistry Learning Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">All-in-One Gen Chem + Chem II Platform</p>
+      <h1>Chemistry Learning Hub</h1>
+      <p class="lead">
+        Master chemistry with interactive lessons, guided practice, and powerful calculators for tedious multi-step work.
+      </p>
+      <div class="hero__actions">
+        <a href="#calculators" class="btn btn--primary">Open Calculators</a>
+        <a href="#learn" class="btn btn--ghost">Explore Concepts</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section id="learn" class="card">
+      <h2>Learning Studio</h2>
+      <p>Tap a topic to read clear explanations and memory-friendly rules.</p>
+      <div id="topic-grid" class="topic-grid"></div>
+      <article id="topic-content" class="topic-content"></article>
+    </section>
+
+    <section class="card">
+      <h2>Mini Periodic Explorer</h2>
+      <p>Quick-reference cards for common high-frequency elements.</p>
+      <div id="periodic-grid" class="periodic-grid"></div>
+    </section>
+
+    <section id="calculators" class="card">
+      <h2>Calculation Center</h2>
+      <p>
+        Built for repetitive and difficult chemistry calculations. Enter values, click solve, and review the formula used.
+      </p>
+
+      <div class="calculator-tabs" id="calculator-tabs"></div>
+      <div id="calculator-panel" class="calculator-panel"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Designed for students, parents, and teachers. Always verify final answers with your course assumptions and significant figures policy.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
