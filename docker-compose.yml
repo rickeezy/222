@@ -1,35 +1,23 @@
 services:
   postgres:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     environment:
-      POSTGRES_USER: campus
-      POSTGRES_PASSWORD: campus
-      POSTGRES_DB: campus_game
+      POSTGRES_USER: wavematch
+      POSTGRES_PASSWORD: wavematch
+      POSTGRES_DB: wavematch
     ports: ["5432:5432"]
-    volumes: ["pg_data:/var/lib/postgresql/data"]
-
-  redis:
-    image: redis:7-alpine
-    ports: ["6379:6379"]
-
   backend:
     build: ./backend
     environment:
-      PORT: 8000
-      DATABASE_URL: postgresql://campus:campus@postgres:5432/campus_game
-      REDIS_URL: redis://redis:6379
-      JWT_SECRET: super-secret
-      FRONTEND_URL: http://localhost:3000
-      STUDENT_EMAIL_DOMAIN: howard.edu
+      DATABASE_URL: postgresql+psycopg2://wavematch:wavematch@postgres:5432/wavematch
+      SECRET_KEY: changeme
+    volumes: ["./backend:/app"]
     ports: ["8000:8000"]
-    depends_on: [postgres, redis]
-
+    depends_on: [postgres]
   frontend:
     build: ./frontend
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:8000
+    volumes: ["./frontend:/app"]
     ports: ["3000:3000"]
     depends_on: [backend]
-
-volumes:
-  pg_data:

@@ -1,9 +1,7 @@
-FROM node:20-alpine
+FROM python:3.11-slim
 WORKDIR /app
-COPY package.json tsconfig.json ./
-RUN npm install
-COPY prisma ./prisma
-RUN npx prisma generate
-COPY src ./src
-EXPOSE 8000
-CMD ["sh", "-c", "npx prisma migrate deploy && npm run seed && npm run dev"]
+RUN apt-get update && apt-get install -y ffmpeg libsndfile1 && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
