@@ -1,1 +1,7 @@
-export default function Page(){return <main className='p-8 text-white bg-black min-h-screen'><h1 className='text-4xl font-bold'>WaveMatch AI</h1><p>Music similarity with MIR + vectors.</p></main>}
+'use client';
+import dynamic from 'next/dynamic';
+const CampusMap = dynamic(() => import('../components/CampusMap'), { ssr: false });
+
+export default function Home() {
+  return <main className="min-h-screen p-4 bg-slate-950 text-white"><h1 className="text-2xl font-bold mb-4">Campus Explorer</h1><CampusMap /></main>;
+}
